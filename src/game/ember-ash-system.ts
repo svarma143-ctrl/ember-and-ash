@@ -73,6 +73,8 @@ export class EmberAshSystem extends createSystem({
   heldItems: { required: [FireItem, Grabbed] },
   heldFans: { required: [FanTool, Grabbed] },
   heldShields: { required: [ShieldTool, Grabbed] },
+  shields: { required: [ShieldTool] },
+  fans: { required: [FanTool] },
 }) {
   private flame = 70;
   private night = 1;
@@ -125,23 +127,40 @@ export class EmberAshSystem extends createSystem({
       globalThis.localStorage?.getItem('emberash.best') ?? '0',
     );
 
-    // Capture home transforms so fed/dropped items can return to the woodpile.
-    for (const entity of this.queries.items.entities) {
+    // Capture home transforms so released items can return to the woodpile.
+    const captureHome = (entity: Entity) => {
       const obj = entity.object3D;
       if (obj == null) {
-        continue;
+        return;
       }
       this.homeTransforms.set(entity, {
         position: obj.position.clone(),
         quaternion: obj.quaternion.clone(),
       });
+    };
+    for (const entity of this.queries.items.entities) {
+      captureHome(entity);
+    }
+    for (const entity of this.queries.shields.entities) {
+      captureHome(entity);
+    }
+    for (const entity of this.queries.fans.entities) {
+      captureHome(entity);
     }
 
-    // Feeding: item released near the fire is consumed.
+    const sendHome = (entity: Entity) => {
+      const home = this.homeTransforms.get(entity);
+      if (home != null && entity.object3D != null) {
+        entity.object3D.position.copy(home.position);
+        entity.object3D.quaternion.copy(home.quaternion);
+      }
+    };
     this.cleanupFuncs.push(
       this.queries.heldItems.subscribe('disqualify', (entity) => {
         this.onItemReleased(entity);
       }),
+      this.queries.heldShields.subscribe('disqualify', sendHome),
+      this.queries.heldFans.subscribe('disqualify', sendHome),
     );
 
     // Panels
@@ -296,6 +315,11 @@ export class EmberAshSystem extends createSystem({
     this.setPanelVisible(
       'result-panel',
       visible ? [0, 1.55, -2.15] : null,
+    );
+    // keep the HUD out of the way of the result panel
+    this.setPanelVisible(
+      'hud-panel',
+      visible || this.panelImmersive !== true ? null : [0, 1.78, -2.5],
     );
   }
 
