@@ -273,7 +273,7 @@ export class EmberAshSystem extends createSystem({
     }
     this.resultTitle?.setProperties({ text: `DAWN BREAKS ON NIGHT ${this.night}` });
     this.resultBody?.setProperties({
-      text: `The fire held until first light. Streak: ${this.streak} night${this.streak === 1 ? '' : 's'} - Best: ${this.bestStreak} - Embers: ${this.embers}`,
+      text: `Held until first light. Streak: ${this.streak} - Best: ${this.bestStreak} - Embers: ${this.embers}`,
     });
     this.nextLabel?.setProperties({ text: 'Stoke Another Night' });
     this.setResultPanelVisible(true);
@@ -285,7 +285,7 @@ export class EmberAshSystem extends createSystem({
     this.streak = 0;
     this.resultTitle?.setProperties({ text: 'THE FIRE WENT OUT' });
     this.resultBody?.setProperties({
-      text: `Nothing left but warm ash. Embers gathered: ${this.embers}. The mountain forgives - build it again.`,
+      text: `Cold ash, quiet pines. Embers gathered: ${this.embers}. Build it again.`,
     });
     this.nextLabel?.setProperties({ text: 'Try Again' });
     this.setResultPanelVisible(true);
@@ -350,13 +350,13 @@ export class EmberAshSystem extends createSystem({
 
     // --- decay & survival timer ---
     if (playing) {
-      let decay = 1.15 + (this.night - 1) * 0.28;
+      let decay = 0.95 + (this.night - 1) * 0.28;
       if (this.resinTimer > 0) {
         decay *= 0.35;
         this.resinTimer -= delta;
       }
       if (this.gustState === 'active' && !this.isShieldBlocking()) {
-        decay *= 2.7;
+        decay *= 2.4;
       }
       this.flame = Math.max(0, this.flame - decay * delta);
       this.nightTimer -= delta;
