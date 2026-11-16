@@ -1,0 +1,80 @@
+<!--
+  Panel, Button, ButtonIcon, and ButtonLabel come from the bundled Horizon kit.
+  Flame and LogIn are bundled Lucide icon components.
+-->
+<style>
+  .panel-root {
+    flex-direction: column;
+    width: 520px;
+    background-color: rgba(8, 10, 22, 0.85);
+    border-color: #3a4270;
+    border-width: 2px;
+    border-radius: 18px;
+  }
+
+  .panel-content {
+    flex-direction: column;
+    gap: 10px;
+    padding-top: 26px; padding-right: 30px; padding-bottom: 18px; padding-left: 30px;
+  }
+
+  .eyebrow {
+    color: #ffb84d;
+    font-size: 15px;
+    font-weight: 700;
+    letter-spacing: 2.4px;
+  }
+
+  .heading {
+    color: #ffe9c4;
+    font-size: 46px;
+    font-weight: 800;
+    line-height: 52px;
+    letter-spacing: 1px;
+  }
+
+  .body {
+    color: #cdd3f4;
+    font-size: 20px;
+    line-height: 28px;
+  }
+
+  .keys {
+    color: #8fd0c4;
+    font-size: 17px;
+    line-height: 24px;
+    letter-spacing: 0.6px;
+  }
+
+  .button {
+    justify-content: flex-start;
+    margin-left: 30px;
+    margin-right: 30px;
+    margin-bottom: 24px;
+  }
+
+  .button-label {
+    transform-translate-y: 1px;
+  }
+</style>
+<Panel class="panel-root">
+  <div class="panel-content">
+    <div class="eyebrow">A HANDS-FIRST CAMPFIRE VIGIL</div>
+    <div class="heading">Ember and Ash</div>
+    <div class="body">Night has fallen and the fire is dying. Feed it with bare hands, shield it when the gusts come, and stoke it to life - until dawn.</div>
+    <div class="keys">PINCH TO GRAB  -  TINDER, LOGS AND RESIN FEED THE FLAME</div>
+    <div class="keys">RAISE THE BARK SHIELD INTO A GUST  -  WAVE THE FAN TO STOKE</div>
+  </div>
+  <Button id="xr-button" class="button">
+    <ButtonIcon>
+      <Flame></Flame>
+    </ButtonIcon>
+    <ButtonLabel class="button-label">Begin the Vigil</ButtonLabel>
+  </Button>
+  <Button id="exit-button" class="button" style="display: none">
+    <ButtonIcon>
+      <LogIn></LogIn>
+    </ButtonIcon>
+    <ButtonLabel class="button-label">Exit to Browser</ButtonLabel>
+  </Button>
+</Panel>

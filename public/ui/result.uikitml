@@ -1,0 +1,49 @@
+<style>
+  .result-root {
+    flex-direction: column;
+    width: 480px;
+    background-color: rgba(8, 10, 22, 0.85);
+    border-color: #3a4270;
+    border-width: 2px;
+    border-radius: 18px;
+  }
+
+  .result-content {
+    flex-direction: column;
+    gap: 10px;
+    padding-top: 26px; padding-bottom: 26px; padding-left: 30px; padding-right: 30px;
+  }
+
+  .result-title {
+    color: #ffd894;
+    font-size: 32px;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+  }
+
+  .result-body {
+    color: #cdd3f4;
+    font-size: 21px;
+    line-height: 28px;
+  }
+
+  .result-button {
+    justify-content: flex-start;
+    margin-left: 30px;
+    margin-right: 30px;
+    margin-bottom: 24px;
+  }
+
+  .button-label {
+    transform-translate-y: 1px;
+  }
+</style>
+<Panel class="result-root">
+  <div class="result-content">
+    <div class="result-title" id="result-title">DAWN BREAKS</div>
+    <div class="result-body" id="result-body">The fire held all night.</div>
+  </div>
+  <Button id="next-button" class="result-button">
+    <ButtonLabel class="button-label" id="next-label">Stoke Another Night</ButtonLabel>
+  </Button>
+</Panel>

@@ -1,0 +1,64 @@
+<style>
+  .hud-root {
+    flex-direction: column;
+    width: 520px;
+    gap: 14px;
+    padding-top: 26px; padding-bottom: 26px; padding-left: 30px; padding-right: 30px;
+    background-color: rgba(8, 10, 22, 0.72);
+    border-color: #2c3354;
+    border-width: 2px;
+    border-radius: 18px;
+  }
+
+  .hud-top {
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .hud-night {
+    color: #ffd894;
+    font-size: 30px;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+  }
+
+  .hud-timer {
+    color: #aab4e8;
+    font-size: 26px;
+    letter-spacing: 1.5px;
+  }
+
+  .hud-flame {
+    color: #ffb84d;
+    font-size: 34px;
+    font-weight: 700;
+    letter-spacing: 2px;
+  }
+
+  .hud-embers {
+    color: #8fd0c4;
+    font-size: 22px;
+    letter-spacing: 1.5px;
+  }
+
+  .hud-gust {
+    color: #ffe9a8;
+    font-size: 26px;
+    font-weight: 700;
+    text-align: center;
+    letter-spacing: 2px;
+    padding: 10px;
+    border-radius: 12px;
+    background-color: rgba(120, 60, 10, 0.65);
+  }
+</style>
+<Panel class="hud-root">
+  <div class="hud-top">
+    <div class="hud-night" id="hud-night">NIGHT 1</div>
+    <div class="hud-timer" id="hud-timer">01:15</div>
+  </div>
+  <div class="hud-flame" id="hud-flame">FLAME [#####-----] 55</div>
+  <div class="hud-embers" id="hud-embers">EMBERS 0   BEST NIGHT 0</div>
+  <div class="hud-gust" id="hud-gust" style="display: none">GUST INCOMING - RAISE THE SHIELD</div>
+</Panel>
