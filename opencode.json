@@ -4,7 +4,7 @@
       "type": "local",
       "command": [
         "node",
-        "/Users/graph/Documents/OpenCode Projects/Inkling 2/Meta VR Start 2026/ember-ash/node_modules/@iwsdk/cli/dist/cli.js",
+        "./node_modules/@iwsdk/cli/dist/cli.js",
         "mcp",
         "stdio"
       ],
@@ -14,7 +14,7 @@
       "type": "local",
       "command": [
         "node",
-        "/Users/graph/Documents/OpenCode Projects/Inkling 2/Meta VR Start 2026/ember-ash/node_modules/@iwsdk/reference/dist/cli.js"
+        "./node_modules/@iwsdk/reference/dist/cli.js"
       ],
       "enabled": true
     },
@@ -22,7 +22,7 @@
       "type": "local",
       "command": [
         "node",
-        "/Users/graph/Documents/OpenCode Projects/Inkling 2/Meta VR Start 2026/ember-ash/node_modules/@meta-quest/metavr/bin.js",
+        "./node_modules/@meta-quest/metavr/bin.js",
         "mcp",
         "server"
       ],
